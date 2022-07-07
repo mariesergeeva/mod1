@@ -1,5 +1,5 @@
 const myName = 'Mariia'
-const age = 28;
+const age = 28
 const someBigNumber = 666n
 const isBigNumber = true
 const bigNumberName = null
