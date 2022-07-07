@@ -13,7 +13,7 @@ let notConst
 console.log("name", myName, typeof myName);
 console.log("age", age, typeof age);
 console.log('big number', someBigNumber, typeof someBigNumber)
-console.log('is it big number?', isBigNumber, typeof isBigNumber)
+console.log('is it a big number?', isBigNumber, typeof isBigNumber)
 console.log('name of big number', bigNumberName, typeof bigNumberName)
 console.log('big object', bigNumber, typeof bigNumber)
 console.log('symbol', id, typeof id)
