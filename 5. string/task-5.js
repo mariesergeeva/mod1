@@ -1,0 +1,6 @@
+let userString = prompt('Введи текст для обрезки').trim()
+console.log(userString)
+let startSliceIndex = Number(prompt('Введи индекс, с которого нужно начать обрезку строки'))
+let endSliceIndex = Number(prompt('Введи индекс, которым нужно закончить обрезку строки'))
+let string = userString.slice(startSliceIndex, endSliceIndex)
+alert(string)
