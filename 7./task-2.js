@@ -1,7 +1,7 @@
 let clientName = prompt('Введите имя клиента').trim()
 let clientSpentToday = Number(prompt('Сколько клиент потратил сегодня?').trim())
 let clientSpentForAllTime = Number(prompt('Сколько клиент потратил за все время?').trim())
-if (!clientSpentToday || !clientSpentForAllTime) {
+if ((!clientSpentToday && clientSpentToday > 0) || (!clientSpentForAllTime && clientSpentForAllTime > 0)) {
     alert('Сумма, которую клиент потратил за все время и которую потратил сегодня, должна быть числом! Перезагрузи страницу, чтобы повторить попытку.')
 } else  {
     let discount = 0
