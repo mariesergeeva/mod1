@@ -1,5 +1,4 @@
 let userPassword = prompt('Введите пароль')
-console.log(/[0-9]/.test(userPassword))
 if (userPassword.length >= 3 && userPassword.length <= 20
     && !(userPassword === userPassword.toLowerCase()) 
     && /[0-9]/.test(userPassword)) {
