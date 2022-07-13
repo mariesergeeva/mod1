@@ -6,7 +6,7 @@ function getDivisorsCount(number) {
     } else {
         let numberOfDivisors = 1 // так как само число является делителем, но в проверку не входит
         for (let i = 1; i * 2 <= number; i++) {
-            if (number % i == 0) {
+            if (number % i === 0) {
                 numberOfDivisors++
             }
         }
