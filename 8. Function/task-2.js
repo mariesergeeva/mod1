@@ -1,4 +1,4 @@
-function getSumOfNumbers(number, type) {
+function getSumOfNumbers(number, type = 'odd') {
     if (!number || !Number(number)) {
         return NaN
     } else {
