@@ -4,12 +4,11 @@ let student = {
     level: 1,
     improveLevel() {
         this.level++
-        if (this.level <= 5) {
+        if (this.level < allStack.length) {
             this.stack.push(allStack[this.level])
         } else {
             alert('Студент выучил все технологии!')
         }
-        console.log(this)
         return this
     }
 }
@@ -19,3 +18,4 @@ student
   .improveLevel()
   .improveLevel()
   .improveLevel()
+console.log(student)
