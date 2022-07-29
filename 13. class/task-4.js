@@ -19,7 +19,7 @@ class Dictionary {
     showAllWords() {
         let array = Object.values(this.words)
         array.forEach(item => {
-            console.log('showAllWords', Object.values(item).join(' - '))
+            console.log(Object.values(item)[0],' - ', Object.values(item)[1])
         })
     }
 }
