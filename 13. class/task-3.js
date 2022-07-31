@@ -9,12 +9,16 @@ class Dictionary {
             this.words[word] = new Object()
             this.words[word].word = word 
             this.words[word].description = description
-            console.log('after add', this.words)
+            console.log('add', this.words)
         }
+    }
+    get(word) {
+        console.log('get', this.words[word])
+        return this.words[word]
     }
     remove(word) {
         delete this.words[word]
-        console.log('after remove', this.words)
+        console.log('remove', this.words)
     }
     showAllWords() {
         let array = Object.values(this.words)
@@ -30,7 +34,7 @@ dictionary.add(
   "Веб-разработчик",
   "Человек, который создает новые сервисы и сайты или поддерживает и дополняет существующие"
 );
-
+dictionary.get("JavaScript")
 dictionary.remove("JavaScript");
 dictionary.showAllWords();
 // Веб-разработчик - Человек, который создает новые сервисы и сайты или поддерживает

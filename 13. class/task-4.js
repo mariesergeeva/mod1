@@ -12,6 +12,10 @@ class Dictionary {
             console.log('after add', this.words)
         }
     }
+    get(word) {
+        console.log('get', this.words[word])
+        return this.words[word]
+    }
     remove(word) {
         delete this.words[word]
         console.log('after remove', this.words)
