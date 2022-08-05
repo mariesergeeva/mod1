@@ -49,7 +49,7 @@ for (i = 0; i < tasks.length; i++) {
     checkboxFormCheckbox.setAttribute('type', 'checkbox')
     checkboxFormCheckbox.id = `task-${tasks[i].id}`
     let labelForTasks = document.createElement('label')
-    labelForTasks.setAttribute('for', `task-${tasks[i].id}`)
+    labelForTasks.htmlFor = `task-${tasks[i].id}`
     let taskItemText = document.createElement('span')
     taskItemText.className = 'task-item__text'
     taskItemText.textContent = tasks[i].text
