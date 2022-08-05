@@ -33,7 +33,7 @@ createNewTask.addEventListener("submit", (event) => {
   } else {
   errorMessageBlock.className = 'error-message-block'
   }
-  tasksList.append(errorMessageBlock)
+  createNewTask.append(errorMessageBlock)
   if (!newTask.text) {
     errorMessageBlock.textContent = 'Название задачи не должно быть пустым'
   } else if(allTextInTasks.includes(newTask.text)) {
