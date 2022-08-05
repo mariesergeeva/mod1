@@ -33,6 +33,8 @@
       text: "Выполнить ДЗ после урока"
     }
   ]
+
+//1. Добвляем задачи
 let tasksList = document.querySelector('.tasks-list')
 for (i = 0; i < tasks.length; i++) {
     let taskItem = document.createElement('div')

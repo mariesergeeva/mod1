@@ -15,7 +15,7 @@ const tasks = [
     text: "Выполнить ДЗ после урока"
   }
 ]
-//1. Добвляем задачи 
+//1. Добвляем задачи
 let tasksList = document.querySelector('.tasks-list')
 for (i = 0; i < tasks.length; i++) {
   viewTask(tasks[i])
@@ -41,7 +41,7 @@ function viewTask(task) {
   taskItemText.textContent = task.text
   let deleteButton = document.createElement('button')
   deleteButton.className = 'task-item__delete-button default-button delete-button'
-  deleteButton.dataset.deleteTaskId = '5'
+  deleteButton.dataset.deleteTaskId = task.id
   deleteButton.textContent = 'Удалить'
   tasksList.append(taskItem)
   taskItem.append(taskItemMainContainer)
@@ -66,7 +66,7 @@ createNewTask.addEventListener("submit", (event) => {
     allTextInTasks.push(item.text)
   })
   newTask.text = event.target.elements.taskName.value
-//3. Валидация
+  //3. Валидация
   let errorMessageBlock = document.createElement('span')
   if (document.querySelector('.error-message-block')) {
     errorMessageBlock = document.querySelector('.error-message-block')
@@ -85,4 +85,54 @@ createNewTask.addEventListener("submit", (event) => {
   }
 })
 
+//4. Удаление задачи
+let modalOverlay = document.createElement('div')
+modalOverlay.classList = 'modal-overlay modal-overlay_hidden'
+let deleteModal = document.createElement('div')
+deleteModal.className = 'delete-modal'
+let deleteModalQuestion = document.createElement('h3')
+deleteModalQuestion.className = 'delete-modal__question'
+deleteModalQuestion.textContent = 'Вы действительно хотите удалить эту задачу?'
+let deleteModalButtons = document.createElement('div')
+deleteModalButtons.className = 'deleteModalButtons'
+let deleteModalCancelButton =  document.createElement('button')
+deleteModalCancelButton.className = 'delete-modal__button delete-modal__cancel-button'
+deleteModalCancelButton.textContent = 'Отмена'
+let deleteModalDeleteButton =  document.createElement('button')
+deleteModalDeleteButton.className = 'delete-modal__button delete-modal__confirm-button'
+deleteModalDeleteButton.textContent = 'Удалить'
+tasksList.after(modalOverlay)
+modalOverlay.prepend(deleteModal)
+deleteModal.prepend(deleteModalQuestion)
+deleteModalQuestion.after(deleteModalButtons)
+deleteModalButtons.prepend(deleteModalCancelButton)
+deleteModalButtons.append(deleteModalDeleteButton)
 
+let delTaskId = 0
+tasksList.addEventListener('click', (event) => {
+  let delTask = event.target.closest('button')
+  delTaskId = delTask?.dataset.deleteTaskId
+  if (delTask) {
+    modalOverlay.classList.remove('modal-overlay_hidden')
+  }
+})
+deleteModalCancelButton.addEventListener('click', () => {
+  modalOverlay.classList.add('modal-overlay_hidden')
+})
+deleteModalDeleteButton.addEventListener('click', (event) => {
+  removeTask(delTaskId)
+  modalOverlay.classList.add('modal-overlay_hidden')
+})
+function removeTask(taskId) {
+  for (i = 0; i < tasks.length; i++) {
+    if (taskId === tasks[i].id) {
+      tasks.splice(i, 1)
+    }
+  }
+  let allTaskItem = document.querySelectorAll('.task-item')
+  allTaskItem.forEach(item => {
+    if (item.dataset.taskId === taskId) {
+      item.remove()
+    }
+  })
+}

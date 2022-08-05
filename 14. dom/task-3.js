@@ -15,23 +15,11 @@ const tasks = [
     text: "Выполнить ДЗ после урока"
   }
 ]
-let createNewTask = document.querySelector('.create-task-block')
-createNewTask.addEventListener("submit", (event) => {
-  event.preventDefault()
-  let newTask = {
-    id: String(Date.now()),
-    completed: false
-  }
-  newTask.text = event.target.elements.taskName.value
-  tasks.push(newTask)
-  viewTask(newTask)
-})
-
+//1. Добвляем задачи
 let tasksList = document.querySelector('.tasks-list')
 for (i = 0; i < tasks.length; i++) {
   viewTask(tasks[i])
 }
-
 function viewTask(task) {
   let taskItem = document.createElement('div')
   taskItem.className = 'task-item'
@@ -64,3 +52,18 @@ function viewTask(task) {
   taskItemMainContent.append(taskItemText)
   taskItemMainContent.after(deleteButton)
 }
+
+//2. Создаем новую задачу и добавляем ее
+let createNewTask = document.querySelector('.create-task-block')
+createNewTask.addEventListener("submit", (event) => {
+  event.preventDefault()
+  let newTask = {
+    id: String(Date.now()),
+    completed: false
+  }
+  newTask.text = event.target.elements.taskName.value
+  tasks.push(newTask)
+  viewTask(newTask)
+})
+
+
