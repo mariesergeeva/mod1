@@ -74,7 +74,7 @@ createNewTask.addEventListener("submit", (event) => {
   errorMessageBlock.className = 'error-message-block'
   }
   createNewTask.append(errorMessageBlock)
-  if (!newTask.text) {
+  if (!newTask.text || !(Number(newTask.text))) {
     errorMessageBlock.textContent = 'Название задачи не должно быть пустым'
   } else if(allTextInTasks.includes(newTask.text)) {
     errorMessageBlock.textContent = 'Задача с таким названием уже существует.'
